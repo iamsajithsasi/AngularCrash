@@ -1,0 +1,54 @@
+<div>
+    <p>Using if directive</p>
+    <div *ngIf="courses.length > 0; then isCourse else noCourses">
+        <p>Courses</p>
+    </div>
+    <!-- <div *ngIf="courses.length == 0">
+        <p>No courses</p>
+    </div> -->
+    <ng-template #isCourse>
+        <p>Courses</p>
+    </ng-template>
+    <ng-template #noCourses>
+        <p>No courses</p>
+    </ng-template>
+    <div [hidden]="courses.length == 0">
+        <p>Hidden if course is not empty</p>
+    </div>
+    <hr/>
+</div>
+<div>
+    <p>Using switchcase directive</p>
+    
+    <a (click)="viewMode = 'Course1'">Course1</a>
+    <a (click)="viewMode = 'Course2'">Course2</a>
+
+    <div [ngSwitch]="viewMode">
+        <div *ngSwitchCase="'Course1'">
+            <p>Course 1  heading</p>
+            <p>Course 1 description</p>
+        </div>
+        <div *ngSwitchCase="'Course2'">
+            <p>Course 2  heading</p>
+            <p>Course 2 description</p>
+        </div>
+    </div>
+
+    <hr/>
+</div>
+<div>
+    <p>For directive</p>
+    <ul >
+        <li *ngFor="let course of courses; index as i">{{i}} - {{course}}</li>
+    </ul>
+    <p>Load without refresh dom</p>
+    <button (click)="loadCourse()">Load courses</button>
+    <ul>
+        <li 
+            *ngFor="let courseList of courseList; trackBy: courseListTrack ">
+            {{courseList}}
+        </li>
+    </ul>
+    <hr>
+</div>
+

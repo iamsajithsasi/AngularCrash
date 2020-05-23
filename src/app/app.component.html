@@ -1,6 +1,38 @@
-
 <div>
+  <p>String Interpolation</p>
   <span>{{ title }} app is running!</span>
+  <hr />
+  <p>Property binding</p>
+  <p class="isActive" [class.active]="isActive">Hello</p>
+  <p [style.color]="isActive? 'red': 'blue'">Hello2</p>
+  <input [value]="emailDefault"/>
+  <hr />
+  <p>Event binding</p>
+  <!-- <input (keyup.enter)="onKeyUp($event)"/> -->
+  <!-- <input #email (keyup.enter)="onKeyUp(email.value)"/> -->
+  <ul><li>Two way binding</li></ul>
+  <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+  <hr />
+  <p>Pipes</p>
+  <p [textContent]="'Abce' | uppercase | lowercase "></p>
+  <p [textContent]="123456 | number "></p>
+  <hr />
+  <app-favorite [isFavorite]="isFavorite" (change)="isFavoriteStatus()"></app-favorite>
+  <hr />
+  <p>Ng content</p>
+  <app-post-data>
+    <div class="head">
+      <p>Heading</p>
+    </div>
+    <div class="body">
+      <p>Some content goes here...</p>
+    </div>
+    <ng-container class="comments">
+      <p>Some comments...</p>
+    </ng-container>
+  </app-post-data>
+  <hr />
+  <app-courses></app-courses>
 </div>
 
 
