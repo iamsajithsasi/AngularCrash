@@ -12,6 +12,7 @@
   <!-- <input #email (keyup.enter)="onKeyUp(email.value)"/> -->
   <ul><li>Two way binding</li></ul>
   <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
+  <p>You typed {{email}}</p>
   <hr />
   <p>Pipes</p>
   <p [textContent]="'Abce' | uppercase | lowercase "></p>
@@ -33,6 +34,19 @@
   </app-post-data>
   <hr />
   <app-courses></app-courses>
+  <hr />
+  <p>Template form</p>
+  <app-templateform></app-templateform>
+  <hr />
+  <p>Reactive form</p>
+  <app-reactiveforms></app-reactiveforms>
+  <hr />
+  <app-posts></app-posts>
+  <hr />
+  <!-- comment -->
+  <!-- <a routerLink="/"></a> -->
+  <!-- <a [routerLink]="['/followers', 'follower.id']"></a> -->
+  <!-- <li routerLinkActive="active"><a routerLink="/"></li> -->
 </div>
 
 

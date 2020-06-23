@@ -1,0 +1,39 @@
+<form #sampleForm="ngForm" (ngSubmit)="formSubmission(sampleForm)">
+    <div ngModelGroup="group1" >
+        <label for="firstName">First Name</label>
+        <br/>
+        <input required ngModel #firstName="ngModel" type="text" name="firstName" (input)="formNameFn(firstName)" />
+        <br/>
+        <br/>
+    </div>
+    <div ngModelGroup="group2" >
+        <label for="yourComment">Comment</label>
+        <br/>
+        <textarea ngModel #yourComment="ngModel" minlength="3" name="yourComment" cols="30" rows="4" (input)="formCommentFn(yourComment)"></textarea>
+        <br/>
+    </div>
+    <select multiple ngModel name="contactMethod" id="contactMethod">
+        <option *ngFor="let list of dataList">{{list}}</option>
+    </select>
+    <label *ngFor="let list of dataList">
+    <input 
+        ngModel
+        type="radio" 
+        name="contactMethod2" 
+        [value]="list"
+    >
+    {{list}}
+    </label>
+    <label for="subscribeList">
+        <input ngModel type="checkbox" name="subscribeList" id="subscribeList">
+        Subscribe to channel
+    </label>
+    <p>
+        {{sampleForm.value | json}}
+    </p>
+    <div class="error">
+        <p *ngIf="!firstName.valid && firstName.dirty" >Please enter the name</p>
+        <p *ngIf="!yourComment.valid && yourComment.errors.minlength" >Comment is less than {{yourComment.errors.minlength.requiredLength}} characters</p>
+    </div>
+    <button type="submit" [disabled]="!sampleForm.valid">Submit</button>
+</form>

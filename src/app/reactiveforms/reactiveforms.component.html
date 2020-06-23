@@ -1,0 +1,14 @@
+<form [formGroup]="myForm">
+    <label for="userName">Name <br>
+        <input formControlName="userName" type="text" name="userName" id="userName">
+    </label>
+    <br><br>
+    <label for="userComment">Comment <br>
+        <textarea formControlName="userComment" name="yourComment" cols="30" rows="4"></textarea>
+    </label>
+    <div>
+        <p *ngIf="!userName.valid && userName.dirty" >Name is required</p>
+        <p *ngIf="!userName.valid && userName.errors.minlength" >Name should be atleast {{userName.errors.minlength.requiredLength}} characters</p>
+        <p *ngIf="myForm.get('userComment').valid">Comment is less than 3 characters</p>
+    </div>
+</form>
