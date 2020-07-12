@@ -9,10 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class PostsComponent implements OnInit {
   posts: any = []
   constructor(private http: HttpClient) {
-    http.get('https://jsonplaceholder.typicode.com/posts').subscribe((data) => {
-      this.posts = data;
-      console.log(this.posts)
-    })
   }
 
   createPost(input: HTMLInputElement) {
@@ -23,10 +19,14 @@ export class PostsComponent implements OnInit {
         this.posts.unshift(newpost);
         input.value='';
       }, error => {
-        console.log('there is some error');
+        console.log('OOPS! Request failed. Try again later...');
       })
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe((data) => {
+      this.posts = data;
+      console.log(this.posts)
+    })
   }
 }

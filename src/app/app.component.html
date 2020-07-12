@@ -18,7 +18,7 @@
   <p [textContent]="'Abce' | uppercase | lowercase "></p>
   <p [textContent]="123456 | number "></p>
   <hr />
-  <app-favorite [isFavorite]="isFavorite" (change)="isFavoriteStatus()"></app-favorite>
+  <app-favorite [isFavInput]="isFavorite" (isFavOutput)="isFavoriteStatus()"></app-favorite>
   <hr />
   <p>Ng content</p>
   <app-post-data>

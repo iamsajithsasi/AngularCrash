@@ -13,6 +13,7 @@ import { TemplateformComponent } from './templateform/templateform.component';
 import { ReactiveformsComponent } from './reactiveforms/reactiveforms.component';
 import { PostsComponent } from './posts/posts.component';
 import { RouterModule } from '@angular/router';
+import { CreatingroutesComponent } from './creatingroutes/creatingroutes.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     TemplateformComponent,
     ReactiveformsComponent,
     PostsComponent,
+    CreatingroutesComponent,
     // HomeComponent
   ],
   imports: [
@@ -32,7 +34,10 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: "test", component: CoursesComponent}
+      {
+        path: "test",
+        component: CreatingroutesComponent
+      }
     ])
   ],
   providers: [
